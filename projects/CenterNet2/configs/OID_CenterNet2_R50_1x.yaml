@@ -1,0 +1,14 @@
+_BASE_: "Base-CenterNet2.yaml"
+MODEL:
+  ROI_HEADS:
+    NUM_CLASSES: 500
+  CENTERNET:
+    NUM_CLASSES: 500
+DATASETS:
+  TRAIN: ("oid_train",)
+  TEST: ("oid_val_expanded",)
+DATALOADER:
+  SAMPLER_TRAIN: "RepeatFactorTrainingSampler"
+  SOURCE_AWARE: True
+TEST:
+  DETECTIONS_PER_IMAGE: 100
